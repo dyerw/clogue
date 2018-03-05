@@ -8,7 +8,7 @@
 (defmulti take-turn :kind)
 
 (defmethod take-turn :default [thing entities] thing)
-(defmethod take-turn :entity [thing entities]
+(defmethod take-turn #{:uncontrolled :entity} [thing entities]
   (-> thing
       (#(m/move % (without-entity entities thing)))))
       ;a/attack))

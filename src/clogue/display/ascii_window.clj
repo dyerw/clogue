@@ -23,6 +23,7 @@
     (doseq [x (range width) y (range height)]
         (let [glyph (get-glyph x y entities)]
           (s/put-string @screen x y glyph))))
-  (s/redraw @screen)
-  (s/get-key-blocking @screen)) 
+  (s/redraw @screen))
 
+(defn await-input []
+ (s/get-key-blocking @screen))
